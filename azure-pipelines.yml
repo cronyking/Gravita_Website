@@ -8,7 +8,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- script: echo Hi Faizan Ali from the pipeline!
   displayName: 'Run a one-line script'
 
 - script: |
