@@ -8,9 +8,21 @@ steps:
   - script: |
       sudo apt update
       sudo apt install apache2
-      cp . /var/www/html
-      sudo systemctl restart apache2
-    displayName: 'Deploy Static Website'
-  
-  
+    displayName: 'Install Apache'
+
+  - script: |
+      # Copy your static website files to a temporary directory
+      mkdir -p $(Build.ArtifactStagingDirectory)/html
+      cp -r . $(Build.ArtifactStagingDirectory)/html
+
+      # Zip the static website files
+      cd $(Build.ArtifactStagingDirectory)
+      tar -czvf website.tar.gz html
+    displayName: 'Create Artifact'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      artifactName: 'website'
+    displayName: 'Publish Artifact'
 
