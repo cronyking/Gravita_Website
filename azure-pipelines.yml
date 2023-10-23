@@ -8,7 +8,9 @@ steps:
   - script: |
       sudo apt update
       sudo apt install apache2
-      # Add commands to deploy your website here
-      # For example, copy your HTML/CSS files to a server using SCP, FTP, or another method
+      cp . /var/www/html
+      sudo systemctl restart apache2
     displayName: 'Deploy Static Website'
+  
+  
 
