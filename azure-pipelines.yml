@@ -6,6 +6,11 @@ pool:
 
 steps:
   - script: |
+      - task: CopyFiles@2
+        inputs:
+          SourceFolder: 'Gravita_Website'
+          Contents: '**'
+          TargetFolder: '/var/www/html/'
       # Add commands to deploy your website here
       # For example, copy your HTML/CSS files to a server using SCP, FTP, or another method
     displayName: 'Deploy Static Website'
