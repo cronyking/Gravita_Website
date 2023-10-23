@@ -1,17 +1,12 @@
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- master
+  - main  # Replace with your branch name
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'  # Use an image that suits your needs
 
 steps:
-- script: echo Hi Faizan Ali from the pipeline!
-  displayName: 'Run a one-line script'
+  - script: |
+      # Add commands to deploy your website here
+      # For example, copy your HTML/CSS files to a server using SCP, FTP, or another method
+    displayName: 'Deploy Static Website'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
